@@ -1,0 +1,482 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "permascore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 772987170577583
+		},
+		{
+			"eventType": "variable",
+			"name": "tempscore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 705109581584246
+		},
+		{
+			"eventType": "variable",
+			"name": "speed",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 110172238567395
+		},
+		{
+			"eventType": "variable",
+			"name": "speed1",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 528581926513720
+		},
+		{
+			"eventType": "variable",
+			"name": "facing",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 123548507928980
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 919727909366118,
+					"parameters": {
+						"key": 87
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-y",
+					"objectClass": "fish",
+					"sid": 165718289622549,
+					"parameters": {
+						"y": "fish.Y-speed1"
+					}
+				}
+			],
+			"sid": 201582624903234
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 112318808374684,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "fish",
+					"sid": 170447901940053,
+					"parameters": {
+						"x": "fish.X-speed1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 700004213635512,
+					"parameters": {
+						"variable": "facing",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 818112510545490
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 555425692452075,
+					"parameters": {
+						"key": 83
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-y",
+					"objectClass": "fish",
+					"sid": 479716604638161,
+					"parameters": {
+						"y": "fish.Y+speed1"
+					}
+				}
+			],
+			"sid": 674742930450347
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 894349825382428,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "fish",
+					"sid": 796432104218059,
+					"parameters": {
+						"x": "fish.X+speed1"
+					}
+				}
+			],
+			"sid": 570190901887437
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 454254578092551
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 479681671575004,
+					"parameters": {
+						"variable": "speed1",
+						"value": "speed+0.4375*(tempscore)"
+					}
+				}
+			],
+			"sid": 680241787115524
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 612838535857875,
+					"parameters": {
+						"key": 87
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 200001132508936,
+					"parameters": {
+						"variable": "facing",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 708389704771503,
+					"parameters": {
+						"animation": "\"moveR\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 229981908179949
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 743527548060402,
+					"parameters": {
+						"key": 87
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 359830295890554,
+					"parameters": {
+						"variable": "facing",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 668424671366405,
+					"parameters": {
+						"animation": "\"moveL\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 358821936184479
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 793813698738165,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 592140885970275,
+					"parameters": {
+						"animation": "\"moveL\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 894519249605031
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 285686670102869,
+					"parameters": {
+						"key": 83
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 309286645797150,
+					"parameters": {
+						"variable": "facing",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 849145930017722,
+					"parameters": {
+						"animation": "\"moveL\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 178535273350779
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 644958043039085,
+					"parameters": {
+						"key": 83
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 715151568471170,
+					"parameters": {
+						"variable": "facing",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 379785215287516,
+					"parameters": {
+						"animation": "\"moveR\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 174616132598551
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 596798609175566,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 464118636991041,
+					"parameters": {
+						"animation": "\"moveR\"",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 807511794971875,
+					"parameters": {
+						"variable": "facing",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 875613138915954
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 953609472599596,
+					"parameters": {
+						"key": 87
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 966564534478242,
+					"parameters": {
+						"animation": "\"idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 925792976500208
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 464068283176575,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 616737299683724,
+					"parameters": {
+						"animation": "\"idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 681387930867676
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 883570936982595,
+					"parameters": {
+						"key": 83
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 311188491837475,
+					"parameters": {
+						"animation": "\"idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 710577047241313
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 106489438275446,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "fish",
+					"sid": 166317459531996,
+					"parameters": {
+						"animation": "\"idle\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 387826243558000
+		}
+	],
+	"sid": 755914671881537
+}
